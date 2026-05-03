@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTest extends TestBase {
@@ -18,6 +19,10 @@ public class LoginTest extends TestBase {
         app.getHelperUser().submitLogin();
 
         //Assert
+//        Assert.assertEquals();
+//        Assert.assertNotEquals();
+//        Assert.assertTrue();
+//        Assert.assertFalse();
     }
 
 }
