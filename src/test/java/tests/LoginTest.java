@@ -1,5 +1,6 @@
 package tests;
 
+import models.User;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -14,13 +15,26 @@ public class LoginTest extends TestBase {
 //    }
 
     @BeforeMethod
-    public void preCondition(){
+    public void preCondition() {
 
         //If button signe out present ---> logout
 
-        if(app.getHelperUser().isLogged()){
+        if (app.getHelperUser().isLogged()) {
             app.getHelperUser().logout();
         }
+
+    }
+
+    @Test
+    public void loginSuccess1() {
+        User user = new User().setEmail("margo@gmail.com").setPassword("Mmar123456$");
+
+
+        app.getHelperUser().openLoginRegistrationForm();
+        app.getHelperUser().fillLoginRegistrationForm(user);
+        app.getHelperUser().submitLogin();
+
+        Assert.assertTrue(app.getHelperUser().isLogged());
 
     }
 
@@ -37,7 +51,7 @@ public class LoginTest extends TestBase {
 //        Assert.assertTrue();
 //        Assert.assertFalse();
 
-    Assert.assertTrue(app.getHelperUser().isLogged());
+        Assert.assertTrue(app.getHelperUser().isLogged());
 
     }
 
@@ -59,7 +73,7 @@ public class LoginTest extends TestBase {
 //    }
 
     @Test
-    public void loginWrongEmail(){
+    public void loginWrongEmail() {
         app.getHelperUser().openLoginRegistrationForm();
         app.getHelperUser().fillLoginRegistrationForm("margogmail.com", "Mmar123456$");
         app.getHelperUser().submitLogin();
@@ -69,7 +83,7 @@ public class LoginTest extends TestBase {
     }
 
     @Test
-    public void loginWrongPassword(){
+    public void loginWrongPassword() {
         app.getHelperUser().openLoginRegistrationForm();
         app.getHelperUser().fillLoginRegistrationForm("margo@gmail.com", "Mmar123");
         app.getHelperUser().submitLogin();
@@ -79,7 +93,7 @@ public class LoginTest extends TestBase {
     }
 
     @Test
-    public void loginUregisteredUser(){
+    public void loginUregisteredUser() {
         app.getHelperUser().openLoginRegistrationForm();
         app.getHelperUser().fillLoginRegistrationForm("margo_m@gmail.com", "Mmar123456$");
         app.getHelperUser().submitLogin();
@@ -87,7 +101,6 @@ public class LoginTest extends TestBase {
         Assert.assertTrue(app.getHelperUser().isAlertPresent("Wrong email or password"));
 
     }
-
 
 
 }
