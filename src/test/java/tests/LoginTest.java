@@ -23,6 +23,14 @@ public class LoginTest extends TestBase {
 //        Assert.assertNotEquals();
 //        Assert.assertTrue();
 //        Assert.assertFalse();
+
+    Assert.assertTrue(app.getHelperUser().isLogged());
+
     }
+
+
+
+
+
 
 }
