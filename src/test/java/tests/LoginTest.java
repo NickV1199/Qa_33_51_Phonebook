@@ -2,15 +2,28 @@ package tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LoginTest extends TestBase {
 
 
-    @Test
-    public void test() {
+//    @Test
+//    public void test() {
+//
+//    }
+
+    @BeforeMethod
+    public void preCondition(){
+
+        //If button signe out present ---> logout
+
+        if(app.getHelperUser().isLogged()){
+            app.getHelperUser().logout();
+        }
 
     }
+
 
     @Test
     public void loginSuccess() {
@@ -29,7 +42,21 @@ public class LoginTest extends TestBase {
     }
 
 
+    @Test
+    public void loginSuccessModel() {
+        app.getHelperUser().openLoginRegistrationForm();
+        app.getHelperUser().fillLoginRegistrationForm("margo@gmail.com", "Mmar123456$");
+        app.getHelperUser().submitLogin();
 
+        //Assert
+//        Assert.assertEquals();
+//        Assert.assertNotEquals();
+//        Assert.assertTrue();
+//        Assert.assertFalse();
+
+        Assert.assertTrue(app.getHelperUser().isLogged());
+
+    }
 
 
 
