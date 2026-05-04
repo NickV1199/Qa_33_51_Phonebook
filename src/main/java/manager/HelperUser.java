@@ -1,16 +1,22 @@
 package manager;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HelperUser extends  HelperBase{
+import java.time.Duration;
+
+public class HelperUser extends HelperBase {
 
     public HelperUser(WebDriver wd) {
         super(wd);
     }
 
-    public void openLoginRegistrationForm(){
+    public void openLoginRegistrationForm() {
         //wd.findElement(By.cssSelector("a[href ='/login']"));
 //        WebElement loginTab = wd.findElement(By.xpath("//a[text()='LOGIN']"));
 //        loginTab.click();
@@ -19,7 +25,7 @@ public class HelperUser extends  HelperBase{
 
     }
 
-    public void fillLoginRegistrationForm(String email, String password){
+    public void fillLoginRegistrationForm(String email, String password) {
 //        WebElement emailInput = wd.findElement(By.name("email"));
 //        emailInput.click();
 //        emailInput.clear();
@@ -35,7 +41,7 @@ public class HelperUser extends  HelperBase{
 
     }
 
-    public void submitLogin(){
+    public void submitLogin() {
         click(By.xpath("//button[text()='Login']"));
     }
 
@@ -45,5 +51,16 @@ public class HelperUser extends  HelperBase{
 
     public void logout() {
         click(By.xpath("//button[text()='Sign Out']"));
+    }
+
+    public boolean isAlertPresent(String message) {
+        Alert alert = new WebDriverWait(wd, Duration.ofSeconds(10)).until(ExpectedConditions.alertIsPresent());
+        if (alert != null && alert.getText().contains(message)) {
+            System.out.println(alert.getText());
+            alert.accept();
+            return true;
+
+        }
+        return false;
     }
 }
