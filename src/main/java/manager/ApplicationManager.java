@@ -12,7 +12,7 @@ public class ApplicationManager {
     public void init(){
         wd = new ChromeDriver();
         wd.manage().window().maximize();
-        wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
         wd.navigate().to("https://telranedu.web.app/");
         helperUser = new HelperUser(wd);
     }
