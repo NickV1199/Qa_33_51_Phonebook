@@ -8,18 +8,18 @@ import org.testng.annotations.Test;
 
 import java.util.Random;
 
-public class RegistrationTests extends TestBase{
+public class RegistrationTests extends TestBase {
 
     @BeforeMethod
-    public void preCondition(){
-        if(app.getHelperUser().isLogged()){
+    public void preCondition() {
+        if (app.getHelperUser().isLogged()) {
             app.getHelperUser().logout();
         }
     }
 
 
     @Test
-    public void registrationSuccess(){
+    public void registrationSuccess() {
         Random random = new Random();
         int i = random.nextInt(1000) + 1000;
         System.out.println(i);
@@ -27,6 +27,10 @@ public class RegistrationTests extends TestBase{
 
         int z = (int) ((System.currentTimeMillis() / 1000) % 360);
         System.out.println(z);
+
+        //короткая запись
+        //int i = (int)((System.currentTimeMillis() / 1000) % 360);
+        //User user = new User().setEmail("brown"+i+"@gmail.com).withPassword("Brown1234#");
 
 
         User user = new User()
@@ -38,23 +42,15 @@ public class RegistrationTests extends TestBase{
         app.getHelperUser().submitRegistration();
 
         Assert.assertTrue(app.getHelperUser().isLogged());
+        Assert.assertTrue(app.getHelperUser().isNoContactsHereDisplayed());
 
     }
 
 
     @Test
-    public void registrationWrongEmail(){
-        Random random = new Random();
-        int i = random.nextInt(1000) + 1000;
-        System.out.println(i);
-        System.out.println("=================");
-
-        int z = (int) ((System.currentTimeMillis() / 1000) % 360);
-        System.out.println(z);
-
-
+    public void registrationWrongEmail() {
         User user = new User()
-                .setEmail("brown" + z + "gmail.com")
+                .setEmail("browngmail.com")
                 .setPassword("Brown12345678!");
 
         app.getHelperUser().openLoginRegistrationForm();
@@ -66,18 +62,9 @@ public class RegistrationTests extends TestBase{
     }
 
     @Test
-    public void registrationWrongPassword(){
-        Random random = new Random();
-        int i = random.nextInt(1000) + 1000;
-        System.out.println(i);
-        System.out.println("=================");
-
-        int z = (int) ((System.currentTimeMillis() / 1000) % 360);
-        System.out.println(z);
-
-
+    public void registrationWrongPassword() {
         User user = new User()
-                .setEmail("brown" + z + "@gmail.com")
+                .setEmail("brown@gmail.com")
                 .setPassword("Brown");
 
         app.getHelperUser().openLoginRegistrationForm();
@@ -89,8 +76,8 @@ public class RegistrationTests extends TestBase{
     }
 
     @Test
-    public void registrationExistingUser(){
-                User user = new User()
+    public void registrationExistingUser() {
+        User user = new User()
                 .setEmail("flower@gmail.com")
                 .setPassword("Flower1234!");
 
