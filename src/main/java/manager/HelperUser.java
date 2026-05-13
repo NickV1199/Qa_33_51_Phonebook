@@ -1,5 +1,6 @@
 package manager;
 
+import models.Contact;
 import models.User;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -85,4 +86,6 @@ public class HelperUser extends HelperBase {
         return res;
 
     }
+
+
 }

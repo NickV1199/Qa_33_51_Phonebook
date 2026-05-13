@@ -1,6 +1,7 @@
 package manager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -40,6 +41,25 @@ public class HelperBase {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+
+    public void clearNew(WebElement element){
+        String os = System.getProperty("os.name");
+        System.out.println(os);
+
+
+        element.sendKeys(" ");
+//        element.sendKeys(Keys.BACK_SPACE);
+
+
+        if(os.startsWith("Win")){
+            element.sendKeys(Keys.CONTROL, "a");
+        }else {
+            element.sendKeys(Keys.COMMAND, "a");
+        }
+        element.sendKeys(Keys.DELETE);
+
     }
 
 }
