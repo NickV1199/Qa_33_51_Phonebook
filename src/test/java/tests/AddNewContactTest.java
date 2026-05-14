@@ -69,6 +69,17 @@ public class AddNewContactTest extends TestBase {
 
     }
 
+
+
+    @Test
+    public void addNewContactWrongName(){
+
+    }
+
+    @Test
+    public void
+
+
     //@AfterMethod
     //public void postCondition() {
     //    app.getHelperUser().logout();
