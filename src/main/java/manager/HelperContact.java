@@ -4,7 +4,10 @@ import models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 public class HelperContact extends HelperBase {
@@ -58,4 +61,22 @@ public class HelperContact extends HelperBase {
         }
         return false;
     }
+
+   public boolean isSaveDisplayed(){
+       WebDriverWait wait = new WebDriverWait(wd, Duration.ofSeconds(5));
+       boolean res = wait.until(ExpectedConditions
+               .textToBePresentInElement(wd.findElement(By.xpath("//div[@class='add_form__2rsm2']//button")), "Save"));
+       return res;
+   }
+
+
+    public boolean isAddButtonActive() {
+        return wd.findElement(By.xpath("//a[normalize-space()='ADD']"))
+                .getAttribute("class")
+                .contains("active");
+    }
+
+
+
+
 }
