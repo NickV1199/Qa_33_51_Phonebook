@@ -1,0 +1,5 @@
+20:08:33.945 [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  C:\Users\volko\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+20:08:38.128 [main] INFO  tests.TestBase -- Start
+20:08:39.633 [main] INFO  tests.TestBase -- End

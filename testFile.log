@@ -1,0 +1,14 @@
+652  [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  C:\Users\volko\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+6472 [main] INFO  tests.TestBase -- Start
+559  [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  C:\Users\volko\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+4727 [main] INFO  tests.TestBase -- Start
+6247 [main] INFO  tests.TestBase -- End
+20:02:34.557 [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  C:\Users\volko\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+20:02:38.599 [main] INFO  tests.TestBase -- Start
+20:02:40.007 [main] INFO  tests.TestBase -- End

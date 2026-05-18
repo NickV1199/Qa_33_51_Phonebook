@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -37,6 +38,10 @@ public class AddNewContactTest extends TestBase {
 
         app.getHelperContact().openAddForm();
         app.getHelperContact().fillContactForm(contact);
+       // app.getHelperContact().pause(1000);
+
+        app.getHelperContact().getScreen("src/test/srceenshots/screen -"+i+".png");
+
         app.getHelperContact().submitAddContactForm();
 
         Assert.assertTrue(app.getHelperContact().isContactAddedByName(contact.getName()));
@@ -57,6 +62,7 @@ public class AddNewContactTest extends TestBase {
 
         app.getHelperContact().openAddForm();
         app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(1000);
         app.getHelperContact().submitAddContactForm();
 
         Assert.assertTrue(app.getHelperContact().isContactAddedByName(contact.getName()));
@@ -80,6 +86,7 @@ public class AddNewContactTest extends TestBase {
 
         app.getHelperContact().openAddForm();
         app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(1000);
         app.getHelperContact().submitAddContactForm();
 
         Assert.assertTrue(app.getHelperContact().isSaveDisplayed());
@@ -101,6 +108,7 @@ public class AddNewContactTest extends TestBase {
 
         app.getHelperContact().openAddForm();
         app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(1000);
         app.getHelperContact().submitAddContactForm();
 
         Assert.assertTrue(app.getHelperContact().isSaveDisplayed());
@@ -121,6 +129,10 @@ public class AddNewContactTest extends TestBase {
 
         app.getHelperContact().openAddForm();
         app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(1000);
+
+
+
         app.getHelperContact().submitAddContactForm();
 
         Assert.assertTrue(app.getHelperUser().isAlertPresent("Email not valid: должно иметь формат адреса электронной почты"));
@@ -142,6 +154,7 @@ public class AddNewContactTest extends TestBase {
 
         app.getHelperContact().openAddForm();
         app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(1000);
         app.getHelperContact().submitAddContactForm();
 
 
@@ -163,6 +176,7 @@ public class AddNewContactTest extends TestBase {
 
         app.getHelperContact().openAddForm();
         app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(1000);
         app.getHelperContact().submitAddContactForm();
 
         Assert.assertTrue(app.getHelperContact().isSaveDisplayed());

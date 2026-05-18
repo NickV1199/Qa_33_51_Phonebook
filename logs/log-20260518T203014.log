@@ -1,0 +1,19 @@
+20:30:14.709 [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  C:\Users\volko\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+20:30:17.145 [main] INFO  manager.ApplicationManager -- All tests runs in Chrome Browser
+20:30:17.789 [main] INFO  manager.ApplicationManager -- The link --->https://telranedu.web.app/home
+20:30:17.828 [main] INFO  tests.TestBase -- Name of method(test) -->loginSuccess1
+20:30:18.892 [main] INFO  tests.TestBase -- Start test with name 'loginSuccess1'
+20:30:18.892 [main] INFO  tests.TestBase -- Test data --->  email: 'flower@gmail.com' & password: 'Flower123!'
+20:30:20.369 [main] INFO  tests.TestBase -- Assert check is element button 'Signe out' present
+20:30:20.374 [main] INFO  tests.TestBase -- Name of method(test) -->loginUregisteredUser
+20:30:20.450 [main] INFO  tests.TestBase -- Before method finished logout
+20:30:20.451 [main] INFO  tests.TestBase -- Test data --->  email: 'flower@gmail.com' & password: 'Flower12'
+20:30:21.418 [main] INFO  tests.TestBase -- Assert check is alert present with error text 'Wrong email or password'
+20:30:21.420 [main] INFO  tests.TestBase -- Name of method(test) -->loginWrongEmail
+20:30:22.433 [main] INFO  tests.TestBase -- Test data --->  email: 'flowergmail.com' & password: 'Flower123!'
+20:30:23.363 [main] INFO  tests.TestBase -- Assert check is alert present with error text 'Wrong email or password'
+20:30:23.365 [main] INFO  tests.TestBase -- Name of method(test) -->loginWrongPassword
+20:30:24.423 [main] INFO  tests.TestBase -- Test data --->  email: 'flower@gmail.com' & password: 'Flower12'
+20:30:25.336 [main] INFO  tests.TestBase -- Assert check is alert present with error text 'Wrong email or password'
