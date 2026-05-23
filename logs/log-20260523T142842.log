@@ -1,0 +1,11 @@
+14:28:43.269 [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  C:\Users\volko\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+14:28:45.684 [main] INFO  manager.ApplicationManager -- All tests runs in Chrome Browser
+14:28:46.267 [main] INFO  manager.ApplicationManager -- The link --->https://telranedu.web.app/home
+14:28:46.296 [main] INFO  tests.TestBase -- Name of method(test) -->removeFirstContact
+14:28:47.693 [main] INFO  tests.TestBase -- Before method finished logout
+14:28:48.749 [main] INFO  tests.TestBase -- Start test with name 'removeFirstContact'
+14:28:49.152 [main] INFO  tests.TestBase -- Contacts size before removing first contact: 2
+14:28:51.324 [main] INFO  tests.TestBase -- Contacts size after removing first contact: 1
+14:28:51.326 [main] INFO  tests.TestBase -- Assert check: contacts size after removing first contact equals contact size before removing first contact - 1

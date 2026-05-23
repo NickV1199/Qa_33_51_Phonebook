@@ -14,16 +14,13 @@ public class RegistrationTests extends TestBase {
     public void preCondition() {
         if (app.getHelperUser().isLogged()) {
             app.getHelperUser().logout();
+            logger.info("Before method finished logout");
         }
     }
 
 
     @Test
     public void registrationSuccess() {
-        Random random = new Random();
-        int i = random.nextInt(1000) + 1000;
-        System.out.println(i);
-        System.out.println("=================");
 
         int z = (int) ((System.currentTimeMillis() / 1000) % 360);
         System.out.println(z);
@@ -31,6 +28,9 @@ public class RegistrationTests extends TestBase {
         //короткая запись
         //int i = (int)((System.currentTimeMillis() / 1000) % 360);
         //User user = new User().setEmail("brown"+i+"@gmail.com).withPassword("Brown1234#");
+
+        logger.info("Start test with name 'registrationSuccess'");
+        logger.info("Test data --->  email: 'brown" + z + "@gmail.com' & password: 'Brown12345678!'");
 
 
         User user = new User()
@@ -44,11 +44,17 @@ public class RegistrationTests extends TestBase {
         Assert.assertTrue(app.getHelperUser().isLogged());
         Assert.assertTrue(app.getHelperUser().isNoContactsHereDisplayed());
 
+        logger.info("Assert check: is element button 'Signe out' present and is element 'No Contacts Here' is displayed");
+
     }
 
 
     @Test
     public void registrationWrongEmail() {
+
+        logger.info("Start test with name 'registrationWrongEmail'");
+        logger.info("Test data --->  email: 'browngmail.com' & password: 'Brown12345678!'");
+
         User user = new User()
                 .setEmail("browngmail.com")
                 .setPassword("Brown12345678!");
@@ -59,10 +65,16 @@ public class RegistrationTests extends TestBase {
 
         Assert.assertTrue(app.getHelperUser().isAlertPresent("Wrong email or password format"));
 
+        logger.info("Assert check: is alert signe 'Wrong email or password format' present");
+
     }
 
     @Test
     public void registrationWrongPassword() {
+
+        logger.info("Start test with name 'registrationWrongPassword'");
+        logger.info("Test data --->  email: 'brown@gmail.com' & password: 'Brown'");
+
         User user = new User()
                 .setEmail("brown@gmail.com")
                 .setPassword("Brown");
@@ -73,10 +85,16 @@ public class RegistrationTests extends TestBase {
 
         Assert.assertTrue(app.getHelperUser().isAlertPresent("Wrong email or password format"));
 
+        logger.info("Assert check: is alert signe 'Wrong email or password format' present");
+
     }
 
     @Test
     public void registrationExistingUser() {
+
+        logger.info("Start test with name 'registrationExistingUser'");
+        logger.info("Test data --->  email: 'flower@gmail.com' & password: 'Flower1234!'");
+
         User user = new User()
                 .setEmail("flower@gmail.com")
                 .setPassword("Flower1234!");
@@ -86,6 +104,8 @@ public class RegistrationTests extends TestBase {
         app.getHelperUser().submitRegistration();
 
         Assert.assertTrue(app.getHelperUser().isAlertPresent("User already exist"));
+
+        logger.info("Assert check: is alert signe 'User already exist' present");
 
     }
 

@@ -1,0 +1,11 @@
+14:42:35.095 [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  C:\Users\volko\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+14:42:37.692 [main] INFO  manager.ApplicationManager -- All tests runs in Chrome Browser
+14:42:38.329 [main] INFO  manager.ApplicationManager -- The link --->https://telranedu.web.app/home
+14:42:38.366 [main] INFO  tests.TestBase -- Name of method(test) -->removeAllContacts
+14:42:39.816 [main] INFO  tests.TestBase -- Before method finished logout
+14:42:40.885 [main] INFO  tests.TestBase -- Start test with name 'removeAllContacts'
+14:42:41.315 [main] INFO  tests.TestBase -- Contacts size before removing all contacts: 4
+14:42:52.065 [main] INFO  tests.TestBase -- Contacts size after removing all contacts: 0
+14:42:53.153 [main] INFO  tests.TestBase -- Assert checks: no contacts in the list, element 'No contacts here' is displayed

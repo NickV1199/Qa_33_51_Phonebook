@@ -1,0 +1,22 @@
+12:55:08.454 [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  C:\Users\volko\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+12:55:11.013 [main] INFO  manager.ApplicationManager -- All tests runs in Chrome Browser
+12:55:11.645 [main] INFO  manager.ApplicationManager -- The link --->https://telranedu.web.app/home
+12:55:11.677 [main] INFO  tests.TestBase -- Name of method(test) -->registrationExistingUser
+12:55:12.692 [main] INFO  tests.TestBase -- Start test with name 'registrationExistingUser'
+12:55:12.692 [main] INFO  tests.TestBase -- Test data --->  email: 'flower@gmail.com' & password: 'Flower1234!'
+12:55:14.131 [main] INFO  tests.TestBase -- Assert check: is alert signe 'User already exist' present
+12:55:14.136 [main] INFO  tests.TestBase -- Name of method(test) -->registrationSuccess
+12:55:15.160 [main] INFO  tests.TestBase -- Start test with name 'registrationSuccess'
+12:55:15.160 [main] INFO  tests.TestBase -- Test data --->  email: 'brown75@gmail.com' & password: 'Brown12345678!'
+12:55:16.302 [main] INFO  tests.TestBase -- Assert check: is element button 'Signe out' present and is element 'No Contacts Here' is displayed
+12:55:16.305 [main] INFO  tests.TestBase -- Name of method(test) -->registrationWrongEmail
+12:55:16.360 [main] INFO  tests.TestBase -- Before method finished logout
+12:55:16.361 [main] INFO  tests.TestBase -- Start test with name 'registrationWrongEmail'
+12:55:16.361 [main] INFO  tests.TestBase -- Test data --->  email: 'browngmail.com' & password: 'Brown12345678!'
+12:55:17.209 [main] INFO  tests.TestBase -- Assert check: is alert signe 'Wrong email or password format' present
+12:55:17.211 [main] INFO  tests.TestBase -- Name of method(test) -->registrationWrongPassword
+12:55:18.272 [main] INFO  tests.TestBase -- Start test with name 'registrationWrongPassword'
+12:55:18.272 [main] INFO  tests.TestBase -- Test data --->  email: 'brown@gmail.com' & password: 'Brown'
+12:55:19.140 [main] INFO  tests.TestBase -- Assert check: is alert signe 'Wrong email or password format' present

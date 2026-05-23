@@ -1,0 +1,40 @@
+13:21:46.343 [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
+  C:\Users\volko\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
+
+13:21:48.828 [main] INFO  manager.ApplicationManager -- All tests runs in Chrome Browser
+13:21:49.457 [main] INFO  manager.ApplicationManager -- The link --->https://telranedu.web.app/home
+13:21:49.493 [main] INFO  tests.TestBase -- Name of method(test) -->addNewContactSuccessAllFields
+13:21:50.944 [main] INFO  tests.TestBase -- Before method finished logout
+13:21:50.946 [main] INFO  tests.TestBase -- Start test with name 'addNewContactSuccessAllFields'
+13:21:50.950 [main] INFO  tests.TestBase -- Test data --->  name: 'Bob'; lastName: 'Bobert', phone: '0536781269' email: 'bobert1269@gmail.com', address: 'Tel Aviv, Israel', description: 'friend'
+13:21:54.021 [main] INFO  tests.TestBase -- Assert check: are name and phone number of the added contact equals test data
+13:21:54.026 [main] INFO  tests.TestBase -- Name of method(test) -->addNewContactSuccessRequaieredFields
+13:21:54.033 [main] INFO  tests.TestBase -- Before method finished logout
+13:21:54.033 [main] INFO  tests.TestBase -- Start test with name 'addNewContactSuccessRequaieredFields'
+13:21:54.034 [main] INFO  tests.TestBase -- Test data --->  name: 'Bill'; lastName: 'Billbert', phone: '0116781100' email: 'billbert1100@gmail.com', address: 'New York, USA'
+13:21:55.243 [main] INFO  tests.TestBase -- Assert check: are name and phone number of the added contact equals test data
+13:21:55.244 [main] INFO  tests.TestBase -- Name of method(test) -->addNewContactWrongAddress
+13:21:55.251 [main] INFO  tests.TestBase -- Before method finished logout
+13:21:55.252 [main] INFO  tests.TestBase -- Start test with name 'addNewContactWrongAddress'
+13:21:55.252 [main] INFO  tests.TestBase -- Test data --->  name: 'Bill'; lastName: 'Billbert', phone: '0116781698' email: 'billbert1698@gmail.com', address: ' '
+13:21:55.985 [main] INFO  tests.TestBase -- Assert check: is element 'Save' button displayed and is element 'Add' button is still active
+13:21:55.987 [main] INFO  tests.TestBase -- Name of method(test) -->addNewContactWrongEmail
+13:21:55.994 [main] INFO  tests.TestBase -- Before method finished logout
+13:21:55.995 [main] INFO  tests.TestBase -- Start test with name 'addNewContactWrongEmail'
+13:21:55.995 [main] INFO  tests.TestBase -- Test data --->  name: 'Bill'; lastName: 'Billbert', phone: '0116781749' email: 'billbert1749gmail.com', address: 'New York, USAl'
+13:21:57.323 [main] INFO  tests.TestBase -- Assert check: is element 'Save' button displayed and is element 'Add' button is still active, and is alert signe 'Email not valid: должно иметь формат адреса электронной почты' is present
+13:21:57.325 [main] INFO  tests.TestBase -- Name of method(test) -->addNewContactWrongLastName
+13:21:57.334 [main] INFO  tests.TestBase -- Before method finished logout
+13:21:57.335 [main] INFO  tests.TestBase -- Start test with name 'addNewContactWrongLastName'
+13:21:57.335 [main] INFO  tests.TestBase -- Test data --->  name: 'Bill'; lastName: ' ', phone: '0116781244' email: 'billbert1244@gmail.com', address: 'New York, USAl'
+13:21:58.129 [main] INFO  tests.TestBase -- Assert check: is element 'Save' button displayed and is element 'Add' button is still active
+13:21:58.131 [main] INFO  tests.TestBase -- Name of method(test) -->addNewContactWrongName
+13:21:58.139 [main] INFO  tests.TestBase -- Before method finished logout
+13:21:58.140 [main] INFO  tests.TestBase -- Start test with name 'addNewContactWrongName'
+13:21:58.140 [main] INFO  tests.TestBase -- Test data --->  name: ' '; lastName: 'Billbert', phone: '0116781884' email: 'billbert1884@gmail.com', address: 'New York, USA'
+13:21:58.908 [main] INFO  tests.TestBase -- Assert check: is element 'Save' button displayed and is element 'Add' button is still active
+13:21:58.910 [main] INFO  tests.TestBase -- Name of method(test) -->addNewContactWrongPhone
+13:21:58.916 [main] INFO  tests.TestBase -- Before method finished logout
+13:21:58.917 [main] INFO  tests.TestBase -- Start test with name 'addNewContactWrongPhone'
+13:21:58.917 [main] INFO  tests.TestBase -- Test data --->  name: 'Bill'; lastName: 'Billbert', phone: ' ', email: 'billbert1623@gmail.com', address: 'New York, USAl'
+13:22:00.203 [main] INFO  tests.TestBase -- Assert check: is element 'Save' button displayed and is element 'Add' button is still active, and is alert signe 'Phone not valid: Phone number must contain only digits! And length min 10, max 15!' is present

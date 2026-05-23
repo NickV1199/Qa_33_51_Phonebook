@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 public class HelperContact extends HelperBase {
@@ -77,6 +78,39 @@ public class HelperContact extends HelperBase {
     }
 
 
+    public int provideContacts() {
+        List<WebElement> elements = wd.findElements(By.cssSelector(".contact-item_card__2SOIM"));
+        List<String> contacts = new ArrayList<>();
+
+        for (WebElement element : elements) {
+            contacts.add(element.getText());
+        }
+
+        return contacts.size();
+
+    }
+
+
+    public void openContactsForm() {
+        click(By.xpath("//a[normalize-space()='CONTACTS']"));
+    }
+
+    public void openContactField() {
+        click(By.cssSelector(".contact-item_card__2SOIM"));
+    }
+
+    public void clickRemoveButton(){
+        click(By.xpath("//button[normalize-space()='Remove']"));
+    }
+
+    public void removeAllContacts() {
+        while (provideContacts() > 0) {
+            openContactsForm();
+            openContactField();
+            clickRemoveButton();
+            pause(2000);
+        }
+    }
 
 
 }
