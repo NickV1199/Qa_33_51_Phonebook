@@ -23,6 +23,7 @@ public class HelperUser extends HelperBase {
 //        WebElement loginTab = wd.findElement(By.xpath("//a[text()='LOGIN']"));
 //        loginTab.click();
         click(By.cssSelector("a[href ='/login']"));
+        logger.info("open form by click on button with locator a[href ='/login']");
 
 
     }
@@ -39,6 +40,8 @@ public class HelperUser extends HelperBase {
 //        passwordInput.clear();
 //        passwordInput.sendKeys(password);
         type(By.xpath("//input[@placeholder = 'Password']"), password);
+
+        logger.info("type in input with locator By.name(\"email\")");
 
 
     }
