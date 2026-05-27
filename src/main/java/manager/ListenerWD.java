@@ -8,6 +8,7 @@ import org.openqa.selenium.support.events.WebDriverListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -76,7 +77,11 @@ public class ListenerWD implements WebDriverListener {
         WebDriver wd = (ChromeDriver)target;
         TakesScreenshot takesScreenshot = (TakesScreenshot) wd;
         java.io.File tmp = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        Files.copy(tmp, new File(link));
+        try {
+            Files.copy(tmp,new File(link));
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
 
 
     }
