@@ -1,0 +1,5 @@
+20:27:03.325 [Test worker] INFO  tests.TestBase -- Test data --->  email: 'flowergmail.com' & password: 'Flower123!'
+20:27:03.357 [Test worker] INFO  tests.TestBase -- Start test with name 'registrationWrongPassword'
+20:27:03.358 [Test worker] INFO  tests.TestBase -- Test data --->  email: 'brown@gmail.com' & password: 'Brown'
+20:27:03.364 [Test worker] INFO  tests.TestBase -- Start test with name 'addNewContactSuccessAllFields'
+20:27:03.372 [Test worker] INFO  tests.TestBase -- Test data --->  name: 'Bob'; lastName: 'Bobert', phone: '0536781765' email: 'bobert1765@gmail.com', address: 'Tel Aviv, Israel', description: 'friend'

@@ -1,7 +1,0 @@
-18:39:18.272 [main] INFO  org.testng.internal.Utils -- [TestNG] Running:
-  C:\Users\volko\AppData\Local\JetBrains\IdeaIC2025.2\temp-testng-customsuite.xml
-
-18:39:20.838 [main] INFO  manager.ApplicationManager -- All tests runs in Chrome Browser
-18:39:21.380 [main] INFO  manager.ApplicationManager -- The link --->https://telranedu.web.app/home
-18:39:21.409 [main] INFO  tests.TestBase -- Name of method(test) -->removeFirstContact
-18:39:22.817 [main] INFO  tests.TestBase -- Before method finished logout

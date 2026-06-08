@@ -1,12 +1,9 @@
 package tests;
 
+import manager.DataProviderContact;
 import models.Contact;
 import models.User;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -14,7 +11,7 @@ import java.util.Random;
 
 public class AddNewContactTest extends TestBase {
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
 
 
     public void preCondition() {
@@ -24,7 +21,34 @@ public class AddNewContactTest extends TestBase {
 
     }
 
-    @Test
+    @Test(dataProvider = "contactSuccess",dataProviderClass = DataProviderContact.class)
+    public void addNewContactSuccessAllFields(Contact contact) {
+        int i = (int) (System.currentTimeMillis() / 1000) % 3600;
+
+        app.getHelperContact().openAddForm();
+        app.getHelperContact().fillContactForm(contact);
+        //app.getHelperContact().pause(10000);
+        //app.getHelperContact().getScreen("src/test/screenshots/screen -"+i+".png");
+        app.getHelperContact().submitAddContactForm();
+        Assert.assertTrue(app.getHelperContact().isContactAddedByName(contact.getName()));
+        Assert.assertTrue(app.getHelperContact().isContactAddedByPhone(contact.getPhone()));
+    }
+
+    @Test(dataProvider = "contactCSV",dataProviderClass = DataProviderContact.class)
+    public void addNewContactSuccessAllFieldsCSV(Contact contact) {
+        int i = (int) (System.currentTimeMillis() / 1000) % 3600;
+
+        app.getHelperContact().openAddForm();
+        app.getHelperContact().fillContactForm(contact);
+        app.getHelperContact().pause(1000);
+        //app.getHelperContact().getScreen("src/test/screenshots/screen -" + i + ".png");
+        app.getHelperContact().submitAddContactForm();
+        Assert.assertTrue(app.getHelperContact().isContactAddedByName(contact.getName()));
+        Assert.assertTrue(app.getHelperContact().isContactAddedByPhone(contact.getPhone()));
+    }
+
+
+    @Test(groups = {"smoke", "regress", "retest"})
     public void addNewContactSuccessAllFields() {
 
         logger.info("Start test with name 'addNewContactSuccessAllFields'");
@@ -57,7 +81,10 @@ public class AddNewContactTest extends TestBase {
 
             }
 
-    @Test
+
+
+
+    @Test//(invocationCount = 10)
     public void addNewContactSuccessRequaieredFields() {
 
         logger.info("Start test with name 'addNewContactSuccessRequaieredFields'");

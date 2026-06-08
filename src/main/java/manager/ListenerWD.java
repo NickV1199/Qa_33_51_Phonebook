@@ -58,31 +58,31 @@ public class ListenerWD implements WebDriverListener {
     }
 
 
-    @Override
-    public void onError(Object target, Method method, Object[] args, InvocationTargetException e) {
-        WebDriverListener.super.onError(target, method, args, e);
-        logger.info("Huston, we have problem!");
-        logger.info("Failed method:" + method.getName());
-        logger.info("********************");
-        logger.info("Arguments:"+ Arrays.toString(args));
-        logger.info("********************");
-        logger.info("Exception:"+ e.getTargetException().getClass().getSimpleName());
-        logger.info("********************");
-        logger.info("Message:"+e.getTargetException().getMessage());
-        logger.info("********************");
-        int i = new Random().nextInt(1000)+1000;
-        String link = "src/test/srceenshots/screen_"+i+".png";
-        logger.info("Screen with error  is --->" + link);
-
-        WebDriver wd = (ChromeDriver)target;
-        TakesScreenshot takesScreenshot = (TakesScreenshot) wd;
-        java.io.File tmp = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        try {
-            Files.copy(tmp,new File(link));
-        } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        }
-
-
-    }
+//    @Override
+//    public void onError(Object target, Method method, Object[] args, InvocationTargetException e) {
+//        WebDriverListener.super.onError(target, method, args, e);
+//        logger.info("Huston, we have problem!");
+//        logger.info("Failed method:" + method.getName());
+//        logger.info("********************");
+//        logger.info("Arguments:"+ Arrays.toString(args));
+//        logger.info("********************");
+//        logger.info("Exception:"+ e.getTargetException().getClass().getSimpleName());
+//        logger.info("********************");
+//        logger.info("Message:"+e.getTargetException().getMessage());
+//        logger.info("********************");
+//        int i = new Random().nextInt(1000)+1000;
+//        String link = "src/test/srceenshots/screen_"+i+".png";
+//        logger.info("Screen with error  is --->" + link);
+//
+//        WebDriver wd = (ChromeDriver)target;
+//        TakesScreenshot takesScreenshot = (TakesScreenshot) wd;
+//        java.io.File tmp = takesScreenshot.getScreenshotAs(OutputType.FILE);
+//        try {
+//            Files.copy(tmp,new File(link));
+//        } catch (IOException ex) {
+//            throw new RuntimeException(ex);
+//        }
+//
+//
+//    }
 }

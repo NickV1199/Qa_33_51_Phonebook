@@ -1,10 +1,16 @@
 package tests;
 
+import manager.DataProviderUser;
 import models.User;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class LoginTest extends TestBase {
 
@@ -14,7 +20,7 @@ public class LoginTest extends TestBase {
 //
 //    }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void preCondition() {
 
         //If button signe out present ---> logout
@@ -26,17 +32,20 @@ public class LoginTest extends TestBase {
 
     }
 
-    @Test
-    public void loginSuccess1() {
+
+
+    @Test(dataProvider = "loginData", dataProviderClass = DataProviderUser.class)
+    public void loginSuccess1(String email, String password) {
 
         logger.info("Start test with name 'loginSuccess1'");
-        logger.info("Test data --->  email: 'flower@gmail.com' & password: 'Flower123!'");
+        //logger.info("Test data --->  email: 'flower@gmail.com' & password: 'Flower123!'");
+        logger.info("Test data --->  email: "+ email + " password: " + password);
 
         User user = new User().setEmail("flower@gmail.com").setPassword("Flower123!");
 
 
         app.getHelperUser().openLoginRegistrationForm();
-        app.getHelperUser().fillLoginRegistrationForm(user);
+        app.getHelperUser().fillLoginRegistrationForm(email, password);
         app.getHelperUser().submitLogin();
 
         Assert.assertTrue(app.getHelperUser().isLogged());
@@ -46,7 +55,9 @@ public class LoginTest extends TestBase {
     }
 
 
-    //@Test
+
+
+//    @Test
 //    //public void loginSuccess() {
 //
 //        logger.info("Start");
@@ -54,13 +65,13 @@ public class LoginTest extends TestBase {
 //        app.getHelperUser().openLoginRegistrationForm();
 //        app.getHelperUser().fillLoginRegistrationForm("flower@gmail.com", "Flower1234!");
 //        app.getHelperUser().submitLogin();
-//
-//        //Assert
-////        Assert.assertEquals();
-////        Assert.assertNotEquals();
-////        Assert.assertTrue();
-////        Assert.assertFalse();
-//
+////
+////        //Assert
+//////        Assert.assertEquals();
+//////        Assert.assertNotEquals();
+//////        Assert.assertTrue();
+//////        Assert.assertFalse();
+////
 //        Assert.assertTrue(app.getHelperUser().isLogged());
 //
 //        logger.info("End");
@@ -84,7 +95,33 @@ public class LoginTest extends TestBase {
 //
 //    }
 
-    @Test
+@Test(dataProvider = "loginFile",dataProviderClass = DataProviderUser.class)
+public void loginSuccessModelDPF(User user) {
+    logger.info("Test data---> " + user.toString());
+    app.getHelperUser().openLoginRegistrationForm();
+    app.getHelperUser().fillLoginRegistrationForm(user);
+    app.getHelperUser().submitLogin();
+    Assert.assertTrue(app.getHelperUser().isLogged());
+    logger.info("Assert check is element button 'Sign out' present");
+}
+
+    @DataProvider
+    public Iterator<Object[]>loginData(){
+        List<Object[]> list = new ArrayList<>();
+        list.add(new Object[]{"flower@gmail.com", "Flower123!"});
+        list.add(new Object[]{"margo@gmail.com", "Mmar123456$"});
+        list.add(new Object[]{"margo@gmail.com", "Mmar123456$"});
+
+
+        return list.iterator();
+
+    }
+
+
+
+
+
+    @Test(groups = {"smoke"})
     public void loginWrongEmail() {
         logger.info("Test data --->  email: 'flowergmail.com' & password: 'Flower123!'");
         app.getHelperUser().openLoginRegistrationForm();

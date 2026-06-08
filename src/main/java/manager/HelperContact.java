@@ -34,7 +34,7 @@ public class HelperContact extends HelperBase {
     }
 
     public void submitAddContactForm() {
-        click(By.xpath("//div[@class='add_form__2rsm2']//button"));
+        click(By.cssSelector(".add_form__2rsm2>button"));
     }
 
     public boolean isContactsNotEmpty() {
