@@ -1,5 +1,6 @@
 package manager;
 
+import io.qameta.allure.Step;
 import models.Contact;
 import models.User;
 import org.openqa.selenium.Alert;
@@ -18,6 +19,8 @@ public class HelperUser extends HelperBase {
         super(wd);
     }
 
+
+    @Step("Open login/registration form")
     public void openLoginRegistrationForm() {
         //wd.findElement(By.cssSelector("a[href ='/login']"));
 //        WebElement loginTab = wd.findElement(By.xpath("//a[text()='LOGIN']"));
@@ -28,6 +31,8 @@ public class HelperUser extends HelperBase {
 
     }
 
+
+    @Step("Fill login/registration form with email: {email} and password {password}")
     public void fillLoginRegistrationForm(String email, String password) {
 //        WebElement emailInput = wd.findElement(By.name("email"));
 //        emailInput.click();
@@ -46,6 +51,8 @@ public class HelperUser extends HelperBase {
 
     }
 
+
+    @Step("Fill login/registration form with user {user}")
     public void fillLoginRegistrationForm(User user) {
         type(By.name("email"), user.getEmail());
         type(By.xpath("//input[@placeholder = 'Password']"), user.getPassword());
