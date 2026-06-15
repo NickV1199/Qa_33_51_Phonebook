@@ -32,7 +32,7 @@ public class TestNGListener implements ITestListener {
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
         logger.info("Failure test -->"+result.getTestName());
-        saveFailureAttachments();
+        saveFailureAttachments(result);
     }
 
     private void saveFailureAttachments(ITestResult result) {
